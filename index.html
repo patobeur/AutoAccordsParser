@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Parser d'accords</title>
+    <!-- <link rel="icon" type="jscss/image/png" href="favicon.png" /> -->
+    <link rel="stylesheet" href="css.css" />
+    <script src="js.js"></script>
+    <style>
+        #content {
+            text-align: center;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 0 1em 0 1em;
+        }
+        
+        .form_area {
+            max-width: 100%;
+        }
+        
+        textarea {
+            max-width: 80%;
+            margin: auto;
+        }
+        
+        textarea:invalid {
+            border: 2px dashed red;
+        }
+        
+        textarea:valid {
+            border: 2px solid lime;
+        }
+        
+        img {
+            width: calc(60px * .9);
+            height: calc(89px * .9);
+            /*width: 80%;
+            height: auto;*/
+        }
+        
+        #lesaccords {
+            width: 80%;
+            margin: auto;
+        }
+        
+        table {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div class="form_area">
+            <textarea class="text_area" id="tab" name="accords" width=80% rows="10" cols="53" wrap="off" form="tab_form" maxlength="500" autocapitalize="words" autocomplete="on" value="Am Em Dm F E C G" autofocus required></textarea>
+            <div class="choix"> FR <input checked type="radio" id="fr2us" name="choix" value="fr2us"><input type="radio" id="us2fr" name="choix" value="us2fr"> US</div>
+            <div class="buttons"><input class="btn" type="submit" value="Envoyer le formulaire" onclick="lecture()"></div>
+        </div>
+        <div id="lesaccords"></div>
+        <div id="infossys"></div>
+    </div>
+    <noscript>
+		<div class="noscript">
+			Pour visualiser cette page correctement, vous devez utiliser un navigateur compatible et JavaScript doit être activé.
+		</div>
+	</noscript>
+</body>
+
+</html>
