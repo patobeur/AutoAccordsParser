@@ -1,0 +1,46 @@
+#content {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding: 0 1em 0 1em;
+}
+
+.form_area {
+    max-width: 100%;
+}
+
+textarea {
+    max-width: 80%;
+    margin: auto;
+}
+
+textarea:invalid {
+    border: 2px dashed red;
+}
+
+textarea:valid {
+    border: 2px solid lime;
+}
+
+img {
+    width: calc(60px * .9);
+    height: calc(89px * .9);
+    /*width: 80%;
+    height: auto;*/
+}
+
+#lesaccords {
+    width: 80%;
+    margin: auto;
+}
+
+table {
+    margin: auto;
+}
