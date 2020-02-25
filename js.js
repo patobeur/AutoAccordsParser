@@ -8,7 +8,7 @@ function lecture() {
     var textArea = document.getElementById("tab");
     if (textArea.value != "") { // si le champs n'est pas 
         var tableauFinal = []; // array des lignes retenues
-        var nblignes = 0; // pour compter les lignes non vides
+        var numLigne = 0; // pour compter les lignes non vides
         var tableauDeslignes = textArea.value.split("\n"); // on met lignes dans un array (tableauDeslignes)
         if (tableauDeslignes.length > 0) { // si le nombre de ligne est > 0
             for (i = 0; i < tableauDeslignes.length; i++) { // on boucle sur le nombre de lignes
@@ -18,8 +18,8 @@ function lecture() {
                     for (j = 0; j < (accordsdelaligne.length); j++) { // on boucle sur le nombre d'accords (groupes)
                         accordsdelaligne[j] != "" ? accordFinal[j] = accordsdelaligne[j].charAt(0).toUpperCase() + accordsdelaligne[j].substring(1) : ""; // si le groupe traité n'est pas vide
                     }
-                    tableauFinal[nblignes] = accordFinal; // on remplis la lignes avec les accords détéctés
-                    nblignes++; //on compte la ligne
+                    tableauFinal[numLigne] = accordFinal; // on remplis la lignes avec les accords détéctés
+                    numLigne++; //on compte la ligne
                 }
                 accordsdelaligne.length > max_accords ? max_accords = accordsdelaligne.length : "";
             }
@@ -63,36 +63,36 @@ function html_creator(tableaudesAccords, tagId, maxcol) {
 
 function transposition(lanote, mode) {
     let lavrainote = 'absent';
-    let toto = "";
+    let nomdelaNote = "";
     let bi = 0;
     for (bi = 0; bi < 7; bi++) {
         if (mode == 1) {
             if (lanote.search(fr[bi]) != -1) {
-                toto = lanote.slice((fr[bi].length));
-                lanote = us[bi] + toto;
+                nomdelaNote = lanote.slice((fr[bi].length));
+                lanote = us[bi] + nomdelaNote;
                 console.log(lanote + ' ' + mode);
                 break;
             }
         } else if (mode == 2) {
             if (lanote.search(us[bi]) != -1) {
-                toto = lanote.slice((us[bi].length));
-                lanote = fr[bi] + toto;
+                nomdelaNote = lanote.slice((us[bi].length));
+                lanote = fr[bi] + nomdelaNote;
                 console.log(lanote + ' ' + mode);
                 break;
             }
 
         } else if (mode == 3) {
             if (lanote.search(fr[bi]) != -1) {
-                toto = lanote.slice((fr[bi].length));
-                lanote = fr[bi] + toto;
+                nomdelaNote = lanote.slice((fr[bi].length));
+                lanote = fr[bi] + nomdelaNote;
                 console.log(lanote + ' ' + mode);
                 break;
             }
 
         } else if (mode == 4) {
             if (lanote.search(us[bi]) != -1) {
-                toto = lanote.slice((us[bi].length));
-                lanote = fr[bi] + toto;
+                nomdelaNote = lanote.slice((us[bi].length));
+                lanote = fr[bi] + nomdelaNote;
                 console.log(lanote + ' ' + mode);
                 break;
             }
@@ -133,10 +133,5 @@ function refresh_affichage() {
     var screen_H = window.innerHeight;
     var screen_W = window.innerWidth;
     document.getElementById("infossys").innerHTML = screen_W + "x" + screen_H;
-    //document.getElementById("LESSECTIONS").style.width = "100%";
-    //document.getElementById("navigation").style.width = "100%";
-    //document.getElementById("LESSECTIONS").style.height = screen_H + "px";
-    //document.getElementById("LESSECTIONS").style.width = ((j * 80) + (j * 10)) + "px";
-    //document.getElementsByClassName()("SECTIONS").style.width = (screen_W / 187) + "px"; //187
 }
 /** --------------------------------------------------------------------------------------------------------------------- */
